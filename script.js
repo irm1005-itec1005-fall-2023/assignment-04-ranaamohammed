@@ -5,39 +5,39 @@
  */
 
 
-//
-// Variables
-//
+const inputElement = document.getElementById("todo-input");
+const todoList = document.getElementById("todo-list");
 
-// Constants
-const appID = "app";
-const headingText = "To do. To done. ✅";
 
-// DOM Elements
-let appContainer = document.getElementById(appID);
-
-//
-// Functions
-//
-
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
+function inititialise(){
+  if(!todoList) {
+    console.error("Could not find the todo list");
+    return
   }
-
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  h1.innerText = headingText;
-  appContainer.appendChild(h1);
-
-  // Init complete
-  console.log("App successfully initialised");
 }
 
-//
-// Inits & Event Listeners
-//
+function addTodo(){
+  if(inputElement.value === ""){
+    alert("Please enter a todo");
+  }
+  else{
+    const li = document.createElement("li");
+    li.innerText = inputElement.value;
+    li.addEventListener("click", toggleTodo);
+    todoList.appendChild(li);
+  }
+  inputElement.value = "";
+
+}
+
+function toggleTodo(){
+  this.classList.toggle("completed");
+}
+
+function clearTodo(){
+  const completedItems = document.querySelectorAll("#todo-list .completed");
+  completedItems.forEach(item => item.remove());
+  
+}
+
 inititialise();
