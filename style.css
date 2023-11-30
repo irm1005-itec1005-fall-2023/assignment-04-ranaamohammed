@@ -7,22 +7,7 @@
 /*
  VARIABLES
 */
-:root {
-  /* Core colours */
-  /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
-  --colour-amaranth: #e63946;
-  --colour-peppermint: #f1faee;
-  --colour-aquaisland: #a8dadc;
-  --colour-wedgewood: #457b9d;
-  --colour-cello: #1d3557;
 
-  /* Header configuration */
-  --header-heading-colour: var(--colour-peppermint);
-
-  /* Body configuration */
-  --body-default-colour: var(--colour-cello);
-  --body-background-colour: var(--colour-peppermint);
-}
 
 /*
   PAGE / BODY
@@ -31,14 +16,99 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-default-colour);
   background-color: var(--body-background-colour);
+
 }
 
-main {
-  min-height: 100vh;
 
-  display: flex;
-  justify-content: center;
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: url("./images/homescrn.jpeg") center no-repeat;
+  background-size: cover;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 550px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 100px auto 20px ;
+  border-radius: 50px;
+  padding: 40px 30px 70px;
+}
+
+.todo-app h2 {
   align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  color:black;
+}
+
+.todo-app h2 img {
+  width: 100px;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(199, 196, 196, 0.39);
+  border-radius: 20px;
+  padding-left: 30px;
+  margin-bottom: 20px; 
+}
+input{
+  flex: 1;
+  border: none;
+  outline: none;
+  background:transparent;
+  padding: 10px;
+}
+
+button{
+  border: none;
+  outline: none;
+  background:rgb(254, 76, 213);
+  padding: 10px 50px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 40px;
+}
+
+
+ul li {
+  list-style: none;
+  font-size: 15px;
+  padding: 10px 9px 15px 60px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-image: url("./images/unchecked.png");
+  background-size: cover;
+  background-position: center;
+  top:12px;
+  left: 8px;
+}
+
+ul li.completed {
+  text-decoration: line-through;
+}
+
+ul li.completed::before {
+  background-image: url("./images/checked.png");
 }
 
 
@@ -54,3 +124,5 @@ main {
   white-space: nowrap;
   border-width: 0;
 }
+
+
